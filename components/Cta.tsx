@@ -13,7 +13,10 @@ export type CtaType = {
 	shadowClasses?: string;
 	children?: ReactNode;
 	url?: string;
-	onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+	onClick?: (
+		e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+		id?: number
+	) => void;
 };
 
 export default function Cta({
