@@ -32,7 +32,9 @@ export default function RootLayout({
 				<header className="py-4 w-full bg-slate-900">
 					<Title text="My Todos" />
 				</header>
-				{children}
+				<div className="flex flex-1 w-full bg-white justify-center items-center px-8 text-slate-900">
+					{children}
+				</div>
 				<footer className="py-2 text-center bg-slate-900 w-full">
 					&copy;&nbsp;Crée par Mathieu Tourret
 				</footer>
