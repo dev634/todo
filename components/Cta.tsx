@@ -1,9 +1,9 @@
 "use client";
-import { useRouter } from "next/navigation";
 import { ReactNode } from "react";
+import { useRouter } from "next/navigation";
 
-type CtaType = {
-	as: "link" | "button";
+export type CtaType = {
+	as?: "link" | "button";
 	text?: string;
 	bgColor?: string;
 	textClasses?: string;
@@ -13,6 +13,7 @@ type CtaType = {
 	shadowClasses?: string;
 	children?: ReactNode;
 	url?: string;
+	onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 };
 
 export default function Cta({
@@ -25,20 +26,19 @@ export default function Cta({
 	transitionClasses = "duration-200",
 	shadowClasses = "shadow-xl/20",
 	children,
+	onClick,
 	url,
 }: CtaType) {
 	const router = useRouter();
 	function handleClick() {
-		if (typeof url !== "string") {
-			return router.push("/404");
-		}
-		router.push(url);
+		return router.push(url!);
 	}
+
 	if (as === "button") {
 		return (
 			<button
 				className={`${bgColor} ${textClasses} ${customClasses} ${hoverClasses} ${transitionClasses} ${shadowClasses}`}
-				onClick={handleClick}
+				onClick={onClick ? onClick : handleClick}
 			>
 				{text && text}
 				{children}

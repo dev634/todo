@@ -27,7 +27,7 @@ export default function RootLayout({
 		<html lang="en">
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} 
-        antialiased h-screen flex flex-col overflow-hidden`}
+        antialiased h-screen flex flex-col`}
 			>
 				<header className="py-4 w-full bg-slate-900">
 					<Title text="My Todos" />
